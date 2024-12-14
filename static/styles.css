@@ -1,0 +1,164 @@
+/* 全局樣式 */
+body {
+    font-family: 'Poppins', sans-serif; /* 現代字體 */
+    background-color: #f3f6f9;
+    color: #34495e;
+    margin: 0;
+    padding: 0;
+}
+
+/* 標題樣式 */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin: 20px 0;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* 容器樣式 */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+/* 表格樣式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 15px;
+}
+
+th {
+    background-color: #006d77; /* 主題綠色 */
+    color: #f0efeb;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+td {
+    background-color: #f0efeb
+}
+
+tr:nth-child(even) td {
+    background-color: #f0efeb;
+}
+
+tr:hover td {
+    background-color: #b8dedc;
+    cursor: pointer;
+}
+
+/* 雜湊值樣式 */
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #eef2f7;
+    color: #006d77; 
+    padding: 10px;
+    border-radius: 6px;
+    display: block;
+    word-break: break-word;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 按鈕通用樣式 */
+.btn, .download-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #006d77;
+    color: #edf6f9;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover, .download-btn:hover {
+    background-color: #005057; /* 懸停深綠色 */
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+}
+
+/* 分頁按鈕區域樣式 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.pagination .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+/* 通用居中樣式 */
+.center-content {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    margin: 20px 0; /* 與其他元素間距 */
+}
+
+
+
+
+
+/* 查詢表單樣式 */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+form label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+form input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #006d77;
+    color: #edf6f9;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #005057;
+}

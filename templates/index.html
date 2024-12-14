@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>區塊鏈學歷認證系統</h1>
+        {% if chain %}
+        <div class="center-content">
+            <a href="{{ url_for('query') }}" class="btn">查詢資料</a>
+        </div>
+        <div class="pagination">
+            {% if page > 1 %}
+            <a href="{{ url_for('index', page=page-1) }}" class="btn">上一頁</a>
+            {% endif %}
+            {% if page * per_page < total %}
+            <a href="{{ url_for('index', page=page+1) }}" class="btn">下一頁</a>
+            {% endif %}
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>索引</th>
+                    <th>學生學號</th>
+                    <th>學生姓名</th>
+                    <th>科系</th>
+                    <th>時間戳記</th>
+                    <th>區塊雜湊</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for block in chain %}
+                <tr>
+                    <td>{{ block['index'] }}</td>
+                    <td>{{ block['student_id'] }}</td>
+                    <td>{{ block['name'] }}</td>
+                    <td>{{ block['department'] }}</td>
+                    <td>{{ block['timestamp'] | datetimeformat }}</td>
+                    <td><code>{{ block['hash'] }}</code></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+        <!-- 按鈕組合 -->
+        <div class="pagination">
+            {% if page > 1 %}
+            <a href="{{ url_for('index', page=page-1) }}" class="btn">上一頁</a>
+            {% endif %}
+            {% if page * per_page < total %}
+            <a href="{{ url_for('index', page=page+1) }}" class="btn">下一頁</a>
+            {% endif %}
+        </div>
+    
+        <!-- 下載按鈕 -->
+        <div style="text-align: center;">
+            <a href="{{ url_for('download_csv') }}" class="download-btn">下載完整檔案</a>
+        </div>
+        {% else %}
+        <p class="alert">未找到相關資料。</p>
+        {% endif %}
+    </div>   
+</body>
+</html>

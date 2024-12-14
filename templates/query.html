@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查詢資料</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>查詢學生學歷資料</h1>
+        <form method="POST" action="{{ url_for('query') }}">
+            <label for="student_id">輸入學生學號：</label>
+            <input type="text" id="student_id" name="student_id" required placeholder="例如: B11233001">
+            <button type="submit" class="btn">查詢</button>
+        </form>
+
+        {% if message %}
+        <p class="alert">{{ message }}</p>
+        {% endif %}
+
+        {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    <th>索引</th>
+                    <th>學生學號</th>
+                    <th>學生姓名</th>
+                    <th>科系</th>
+                    <th>時間戳記</th>
+                    <th>區塊雜湊</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for block in results %}
+                <tr>
+                    <td>{{ block['index'] }}</td>
+                    <td>{{ block['student_id'] }}</td>
+                    <td>{{ block['name'] }}</td>
+                    <td>{{ block['department'] }}</td>
+                    <td>{{ block['timestamp'] | datetimeformat }}</td>
+                    <td><code>{{ block['hash'] }}</code></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</body>
+</html>
